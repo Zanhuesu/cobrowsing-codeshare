@@ -1,9 +1,6 @@
-#!/usr/bin/env node
-
-/**
- * Module dependencies.
- */
-
+//filename: wwww.js
+//date: 13/6/2022
+//description: the total config file. This is executed when server starts.
 var app = require('../app');
 var debug = require('debug')('collabide:server');
 var http = require('http');

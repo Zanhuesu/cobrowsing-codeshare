@@ -1,3 +1,6 @@
+//file name: app.js
+//date: 12/6/2022
+//description: main config file
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');

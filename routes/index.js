@@ -1,3 +1,6 @@
+//filename : supernova
+//date: 12/6/2022
+//description: routing entry point
 var express = require('express');
 var router = express.Router();
 var firebase = require('firebase');
@@ -106,7 +109,7 @@ function getProject(res, req, userName, userPassword, projectId) {
               res.redirect('/project/' + projectId);
             }
             else{
-              res.render('index', { data: {title:'CollabIDE',validationFailed:true }} );
+              res.render('index', { data: {title:'Co-Browsing',validationFailed:true }} );
             }
           });
         }
@@ -117,7 +120,7 @@ function getProject(res, req, userName, userPassword, projectId) {
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', { data: {title:'CollabIDE' }});
+  res.render('index', { data: {title:'Co-Browsing' }});
 });
 
 // Login
