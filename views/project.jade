@@ -1,0 +1,49 @@
+extends project-layout
+
+block content
+  #firepad
+  #menu-container
+    .container
+    #menu-header.row 
+      .col-md-12
+        #project-title.menu-heading
+    #menu-edition.row
+      .col-md-12
+        .menu-heading Edition mode
+        #edition-options
+          .row.option-check
+            input(type="radio", name="selected_edition_mode", value="contribution")
+            span  Contributions
+          .row.option-check
+            input(type="radio", name="selected_edition_mode", value="production")
+            span  Product generation
+    #menu-developers.row
+      .col-md-12
+        .menu-heading Developers
+        #developers-list
+    #menu-versions.row
+      .col-md-12
+        .menu-heading Product versions
+        #version-existing
+          .row.menu-version-item
+            #txt-version-principal.col-md-12 Principal
+            .col-md-6
+              a#restore-version-principal.btn.btn-primary.restore-button(name="restorebutton") Switch to this version
+            .col-md-6
+              a#update-version-principal.btn.btn-primary.update-button(name="updatebutton") Update version
+        #version-options
+          .row.new-version-option
+            input#new-version-name.version-name(type="text", name="versionname" placeholder="Version name")
+          .row.new-version-option
+            a#new-version-button.btn.btn-primary.disabled.new-version-button(name="filebutton") Create new version
+    #menu-file.row
+      .col-md-12
+        .menu-heading File export
+        #generation-options
+          .row.generation-item
+            input#generated-file-name.generation-file-name(type="text", name="filename" placeholder="File name")
+          .row.generation-item
+            a#generate-button.btn.btn-primary.disabled.generation-button(name="filebutton") Download File
+    
+        
+
