@@ -10,8 +10,7 @@ function createNewVersion() {
                     createdAt: new Date().getTime(),
                     htmlCode: getCurrentCodeHTML()
                 }).then(loadVersion(versionName));
-            }
-            else {
+            } else {
                 window.alert("A version with that name already exists");
             }
         })
@@ -67,8 +66,16 @@ function loadVersion(versionLabel) {
     newItem.append(colUpdate);
 
     $('#version-existing').append(newItem);
-    $('#restore-version-' + versionLabel).click(function (e) { e.preventDefault(); restoreVersion(versionLabel); return false; });
-    $('#update-version-' + versionLabel).click(function (e) { e.preventDefault(); updateVersion(versionLabel); return false; });
+    $('#restore-version-' + versionLabel).click(function (e) {
+        e.preventDefault();
+        restoreVersion(versionLabel);
+        return false;
+    });
+    $('#update-version-' + versionLabel).click(function (e) {
+        e.preventDefault();
+        updateVersion(versionLabel);
+        return false;
+    });
 
 }
 
@@ -82,12 +89,15 @@ function restoreVersion(versionName) {
         while (codemirrorCodeNode.hasChildNodes()) {
             codemirrorCodeNode.removeChild(codemirrorCodeNode.lastChild);
         }
-        for(var i = 0; i < newCode.childNodes.length;i++){
+        for (var i = 0; i < newCode.childNodes.length; i++) {
             codemirrorCodeNode.append(newCode.childNodes[i]);
         }
         codeMirror.focus();
-        codeMirror.getDoc().setCursor({line: 1, ch: 0});
-        
+        codeMirror.getDoc().setCursor({
+            line: 1,
+            ch: 0
+        });
+
     });
 }
 

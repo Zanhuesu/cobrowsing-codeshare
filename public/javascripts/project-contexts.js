@@ -2,7 +2,7 @@
 var highlighter = {};
 
 var editionController = {
-    defineSpansMode: function () { }
+    defineSpansMode: function () {}
 }
 
 // Object containing all the contexts of the developers
@@ -26,7 +26,9 @@ contexts.Default.adapt(highlighter, DefaultTrait);
 
 
 // Defining the edition mode contexts
-var ContributionsContext = new Context({ name: 'contributions' });
+var ContributionsContext = new Context({
+    name: 'contributions'
+});
 ContributionTrait = Trait({
     defineSpansMode: function () {
         developers.forEach(function (element) {
@@ -38,7 +40,9 @@ ContributionTrait = Trait({
 ContributionsContext.adapt(editionController, ContributionTrait);
 
 
-var ProductionContext = new Context({ name: 'production' });
+var ProductionContext = new Context({
+    name: 'production'
+});
 ProductionTrait = Trait({
     defineSpansMode: function () {
         developers.forEach(function (element) {
@@ -58,9 +62,15 @@ function loadContext(developerName, developerData) {
 function adaptSpecificContext(developerName, developerData) {
 
     var developerRule = rules[0];
-    developers.push({ name: developerName, styleRule: developerRule });
+    developers.push({
+        name: developerName,
+        styleRule: developerRule
+    });
 
-    var DevContext = new Context({ name: developerName, highlightColor: developerData.highlightColor });
+    var DevContext = new Context({
+        name: developerName,
+        highlightColor: developerData.highlightColor
+    });
     devContexts[developerName] = DevContext;
 
     // Sets color highlighthing visible

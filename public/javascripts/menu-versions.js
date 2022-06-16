@@ -11,8 +11,7 @@ function createNewVersion() {
                     firebase.database().ref(proID).once('value').then(function (snapshot) {
                         firebase.database().ref(proID + "-" + versionName).set(snapshot.val());
                     });
-                }
-                else {
+                } else {
                     firebase.database().ref(proID + "-" + activeVersion).once('value').then(function (snapshot) {
                         firebase.database().ref(proID + "-" + versionName).set(snapshot.val());
                     });
@@ -23,8 +22,7 @@ function createNewVersion() {
                     createdAt: new Date().getTime(),
                     firepadRef: versionName
                 });
-            }
-            else {
+            } else {
                 window.alert("A version with that name already exists");
             }
         })
@@ -40,7 +38,7 @@ function loadVersion(snapshot) {
     }
     var newItem = $('<div class="row menu-version-item"></div>');
 
-    var colVersionLabel = $('<div id="txt-version-' + versionlabelAdapted + '" class="col-md-12">' + versionLabel+'</div>');
+    var colVersionLabel = $('<div id="txt-version-' + versionlabelAdapted + '" class="col-md-12">' + versionLabel + '</div>');
     var colDateLabel = $('<div id="date-txt-version-' + versionlabelAdapted + '" class="col-md-12"> Created on ' + getDateFromTimestamp(snapshot.createdAt) + '</div>');
 
     var colRestore = $('<div class="col-md-6"></div>');
@@ -57,12 +55,22 @@ function loadVersion(snapshot) {
     newItem.append(colUpdate);
 
     $('#version-existing').append(newItem);
-    $('#restore-version-' + versionlabelAdapted).click(function (e) { e.preventDefault(); changeVersion(versionLabel); return false; });
-    $('#update-version-' + versionlabelAdapted).click(function (e) { e.preventDefault(); updateVersion(versionLabel); return false; });
+    $('#restore-version-' + versionlabelAdapted).click(function (e) {
+        e.preventDefault();
+        changeVersion(versionLabel);
+        return false;
+    });
+    $('#update-version-' + versionlabelAdapted).click(function (e) {
+        e.preventDefault();
+        updateVersion(versionLabel);
+        return false;
+    });
 }
 
 function changeVersion(versionName) {
-    firebase.database().ref(proID).update({ "activeVersion": versionName });
+    firebase.database().ref(proID).update({
+        "activeVersion": versionName
+    });
 }
 
 function restoreVersion(versionName) {
@@ -90,8 +98,7 @@ function restoreVersion(versionName) {
         activeFirepadRef = ref.child(proID + "-" + versionName);
         activeVersion = versionName;
         firepadInitialization(activeFirepadRef);
-    }
-    else {
+    } else {
         activeFirepadRef = ref.child(proID);
         activeVersion = versionName;
         firepadInitialization(activeFirepadRef);
@@ -120,7 +127,9 @@ function updateVersion(versionName) {
 }
 
 function changePrincipalVersion() {
-    firebase.database().ref(proID).update({ "activeVersion": "principal" });
+    firebase.database().ref(proID).update({
+        "activeVersion": "principal"
+    });
 }
 
 function updatePrincipalVersion() {

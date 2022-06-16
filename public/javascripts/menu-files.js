@@ -5,8 +5,7 @@ function download() {
     var fileName = $("#generated-file-name").val();
     if (fileName) {
         element.setAttribute('download', fileName + ".js");
-    }
-    else {
+    } else {
         element.setAttribute('download', "file.js");
     }
 
@@ -36,4 +35,3 @@ function getCurrentCode() {
     }
     return code;
 }
-

@@ -1,3 +1,7 @@
+//file name : firepad-main.js
+//author: Supernova
+//date: 16/6/2022
+//description: the main file to manipulate console panel
 var proID = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
 var styleSheet = document.styleSheets[document.styleSheets.length - 1];
 var rules;
@@ -69,13 +73,37 @@ function init() {
 
     //experimental();
     firepad.on('ready', function () {
-        $('#generate-button').click(function (e) { e.preventDefault(); download(); return false; });
+        $('#generate-button').click(function (e) {
+            e.preventDefault();
+            download();
+            return false;
+        });
         $('#generate-button').removeClass("disabled");
-        $('#new-version-button').click(function (e) { e.preventDefault(); createNewVersion(); return false; });
+        $('#new-version-button').click(function (e) {
+            e.preventDefault();
+            createNewVersion();
+            return false;
+        });
         $('#new-version-button').removeClass("disabled");
-        $('#restore-version-principal').click(function (e) { e.preventDefault(); changePrincipalVersion(); return false; });
-        $('#update-version-principal').click(function (e) { e.preventDefault(); updatePrincipalVersion(); return false; });
-        $('#project-title').html('Welcome to the project ' + proID);
+        $('#restore-version-principal').click(function (e) {
+            e.preventDefault();
+            changePrincipalVersion();
+            return false;
+        });
+        $('#update-version-principal').click(function (e) {
+            e.preventDefault();
+            updatePrincipalVersion();
+            return false;
+        });
+        $('#project-title').html("Welcome to the Co-Browsing");
+
+        //when click browser button on project.jade file
+        $("#browse-button").removeClass("disabled");
+        $("#browse-button").click(function (e) {
+            e.preventDefault();
+            let inputVal = $("#browse-path-name").val();
+            return false;
+        })
     });
 
 
@@ -134,7 +162,9 @@ function updateRulesContext(snapshot) {
 function experimental() {
     var nContexts = 0;
     while (nContexts < 500000) {
-        var DevContext = new Context({ name: "developer" });
+        var DevContext = new Context({
+            name: "developer"
+        });
         console.log(DevContext.activate());
 
     }
@@ -149,4 +179,3 @@ function hexToRgb(hex) {
         a: 0.25
     } : null;
 }
-

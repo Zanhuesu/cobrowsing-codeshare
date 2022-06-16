@@ -8,9 +8,7 @@ function updateEditionMode(snapshotEdition) {
 
         if (ProductionContext.activationCount > 0)
             ProductionContext.deactivate();
-    }
-
-    else if (newMode === 'production') {
+    } else if (newMode === 'production') {
         if (ProductionContext.activationCount === 0)
             ProductionContext.activate();
 
@@ -28,8 +26,7 @@ function prepareRadio() {
                 ref.update({
                     edition: 'contribution'
                 });
-            }
-            else if (this.value == 'production') {
+            } else if (this.value == 'production') {
                 ref.update({
                     edition: 'production'
                 });
@@ -37,4 +34,3 @@ function prepareRadio() {
 
         });
 }
-

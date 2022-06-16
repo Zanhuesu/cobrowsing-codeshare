@@ -20,7 +20,10 @@ function option1(developerName, developerData) {
         ['active' + developerName]: false
     });
     contexts.Default.adapt(highlighter, DefaultTrait);
-    var DevContext = new Context({ name: developerName, highlightColor: developerData.highlightColor });
+    var DevContext = new Context({
+        name: developerName,
+        highlightColor: developerData.highlightColor
+    });
     devContexts[developerName] = DevContext;
 
     // Sets color highlighthing visible
@@ -58,7 +61,10 @@ function option2(developerName, developerData) {
         ['active' + developerName]: false
     });
     contexts.Default.adapt(highlighters[developerName], DefaultTrait);
-    var DevContext = new Context({ name: developerName, highlightColor: developerData.highlightColor });
+    var DevContext = new Context({
+        name: developerName,
+        highlightColor: developerData.highlightColor
+    });
     devContexts[developerName] = DevContext;
 
     // Sets color highlighthing visible

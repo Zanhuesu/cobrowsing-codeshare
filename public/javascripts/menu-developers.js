@@ -1,16 +1,14 @@
-
 function loadDeveloper(developerName, developerData) {
 
     var newItem = $('<div class="row menu-developers-item"></div>')
 
     var colColor = $('<div class="col-md-3"></div>');
     var colorIcon = $('<div class="developer-icon-' + developerName + '"></div>');
-    $('.developer-icon-' + developerName).css(
-        {
-            'background': developerData.highlightColor,
-            'width': '2em',
-            'height': '2em',
-        });
+    $('.developer-icon-' + developerName).css({
+        'background': developerData.highlightColor,
+        'width': '2em',
+        'height': '2em',
+    });
     styleSheet.insertRule(".developer-icon-" + developerName + "{ width: 3em; height: 3em; background:" + developerData.highlightColor + ";}", 0);
     colColor.append(colorIcon);
 
@@ -19,7 +17,7 @@ function loadDeveloper(developerName, developerData) {
     var nameCol = $('<div class="col-md-12">' + developerName + '</div>');
     nameRow.append(nameCol);
     colNameStatus.append(nameRow);
-    
+
     var statusRow = $('<div class="row"></div>');
     var textCol = $('<div id="status-text-' + developerName + '" class="col-md-5">' + (developerData.online ? 'Online' : 'Offline') + '</div>');
     var iconCol = $('<div id="status-icon-' + developerName + '" class="col-md-4"><div class="' + (developerData.online ? 'online-icon' : 'offline-icon') + '"></div></div>');
