@@ -1,5 +1,6 @@
-//filename : supernova
+//filename : index.js
 //date: 12/6/2022
+//author: supernova
 //description: routing entry point
 var express = require('express');
 var router = express.Router();
